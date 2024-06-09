@@ -20,28 +20,28 @@ CREATE TABLE `carte`
     `idCouleur` INT NOT NULL,
     `idMot` INT NOT NULL,
     PRIMARY KEY (`id`)
-)
+);
 
 CREATE TABLE `couleur`
 (
     `id` INT NOT NULL AUTO_INCREMENT,
     `nom` VARCHAR(10) NOT NULL,
     PRIMARY KEY (`id`)
-)
+);
 
 CREATE TABLE `mot`
 (
     `id` INT NOT NULL AUTO_INCREMENT,
     `nom` VARCHAR(20) NOT NULL,
     PRIMARY KEY (`id`)
-)
+);
 
 CREATE TABLE `joueur`
 (
     `id` INT NOT NULL AUTO_INCREMENT,
     `pseudo` VARCHAR(30) NOT NULL,
     PRIMARY KEY (`id`)
-)
+);
 
 -- Gestion des clés étrangères --
 ALTER TABLE `carte`
