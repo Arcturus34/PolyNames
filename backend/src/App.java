@@ -9,10 +9,12 @@ public class App {
         WebServer webserver = new WebServer();
         webserver.listen(8080);
 
-        webserver.getRouter().get("/partie", (WebServerContext context) -> { try {
-            GameController.findCard(context);
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-        } });
+        webserver.getRouter().get("/cartes", (WebServerContext context) -> {
+            try {
+                GameController.createCards(context);
+            } catch (SQLException e) {
+                System.err.println(e.getMessage());
+            }
+        });
     }
 }
