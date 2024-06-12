@@ -8,9 +8,6 @@ import java.util.ArrayList;
 import database.PolynamesDatabase;
 import models.Game;
 import models.Card;
-import models.Word;
-import models.Color;
-import models.Player;
 
 public class GameDAO{
 
@@ -84,4 +81,6 @@ public class GameDAO{
         }
         return cards;
     } 
+
+    
 }
