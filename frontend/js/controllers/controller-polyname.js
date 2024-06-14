@@ -3,6 +3,7 @@ import { Notifier } from "../patterns/notifier.js";
 
 export class ControllerPolyname extends Notifier {
     #polyname;
+    #cards;
 
     constructor() {
         super();
@@ -13,13 +14,14 @@ export class ControllerPolyname extends Notifier {
         return this.#polyname;
     }
 
-    newGame() {
-        this.#polyname.newGame().then(() => {
-            this.notify();
+    async newGame() {
+        try {
+            await this.#polyname.newGame();
             this.saveGame();
-        }).catch(error => {
+            this.notify();
+        } catch (error) {
             console.error("Erreur lors de la création du nouveau jeu", error);
-        });
+        }
     }
 
     saveGame() {
@@ -30,7 +32,8 @@ export class ControllerPolyname extends Notifier {
         const savedData = sessionStorage.getItem("polyname");
         if (savedData) {
             this.#polyname.fromData(JSON.parse(savedData));
-            this.notify();
+            this.#cards = this.#polyname.getCards();
+            this.update(this.#cards);
             return true;
         } else {
             return false;

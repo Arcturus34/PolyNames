@@ -26,16 +26,19 @@ export class Polyname {
         return this.#cards[index];
     }
 
+    getCards() {
+        return this.#cards;
+    }
+
     toData() {
-        console.log(this.getCardsNumber());
         let myCards = [];
         for (let i = 0; i < this.getCardsNumber(); i++) {
-            console.log(this.getCard(i).value);
+            const card = this.getCard(i);
             const tableau = {
-                id: this.getCard(i).id,
-                Color: this.getCard(i).Color,
-                Word: this.getCard(i).Word,
-                state: this.getCard(i).state,
+                id: card.id,
+                Color: card.Color,
+                Word: card.Word,
+                state: card.state,
             }
             myCards.push(tableau);
         }
