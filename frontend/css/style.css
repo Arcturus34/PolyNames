@@ -40,6 +40,21 @@ body {
     cursor: pointer;
 }
 
+.card.blue {
+    background-color: blue;
+    color: white;
+}
+
+.card.black {
+    background-color: black;
+    color: white;
+}
+
+.card.gray {
+    background-color: gray;
+    color: white;
+}
+
 .card.hidden::after {
     position: absolute;
     content: " ";

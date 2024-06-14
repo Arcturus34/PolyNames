@@ -23,9 +23,19 @@ export class CardsView extends Observer {
 
     displayCard(card) {
         const cardsContainer = document.querySelector(".cards");
-        let enfant = document.createElement("div");
-        enfant.classList.add("card");
-        enfant.innerHTML = `${card.Word}`;
-        cardsContainer.appendChild(enfant);
+        let cardElement = document.createElement("div");
+        cardElement.classList.add("card");
+    
+    
+        if (card.Color.toLowerCase() === "bleu") {
+            cardElement.classList.add("blue");
+        } else if (card.Color.toLowerCase() === "noir") {
+            cardElement.classList.add("black");
+        } else if (card.Color.toLowerCase() === "gris") {
+            cardElement.classList.add("gray");
+        }
+    
+        cardElement.innerHTML = `${card.Word}`;
+        cardsContainer.appendChild(cardElement);
     }
 }
